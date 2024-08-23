@@ -3,18 +3,17 @@ package org.example;
 import org.example.controller.BancoDeDados;
 import org.example.model.Item;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
+        BancoDeDados dados = new BancoDeDados();
 
-        Item item1 = new Item("Filtro de Ar", 1);
-        Item item2 = new Item("Rolamento 32026", 2);
-        Item item3 = new Item("Roldana de Nylon", 3);
-        Item item4 = new Item("Pinhao Caixa Redutora", 4);
+        ArrayList<Item> items = dados.getItems();
 
-        BancoDeDados bd = new BancoDeDados();
-        bd.cadastrar(item1);
-        bd.cadastrar(item2);
-        bd.cadastrar(item3);
-        bd.cadastrar(item4);
+        for (Item item : items) {
+            System.out.println("Nome do Item: "+item.getNome());
+            System.out.println("Codigo do Item: "+item.getCodigo());
+        }
   }
 }
